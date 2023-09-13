@@ -25,3 +25,10 @@ CREATE TABLE [dbo].[DatosClientes]
     [Yoga]            BIT
 );
 Go
+
+
+select min(Ingresos), max(Ingresos) from dbo.DatosClientes
+where PromedioVisitas <= 4;
+
+select min(Ingresos), max(Ingresos) from dbo.DatosClientes
+where PromedioVisitas > 4;

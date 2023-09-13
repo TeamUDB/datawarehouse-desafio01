@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{DD331CD4-6AA6-420E-B8D0-4FCDF9D7F575}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{2EF6D068-70B6-4775-82FB-F713E493C17E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -128,7 +128,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACjejFY8oJ/obpOFWbnxMRJAAAAAASAAACgAAAAEAAAAETVXU5vlqdRK8PoLmKoQWwgAAAAx93+aF9yOA8vjFSP0BQwSHW2WepFTkk9hRsODknv8cAUAAAAIIbngGV5MwE0Iah0EdFSJ3pqnYY</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADHkmcQtyB51E+fG+Ec9nNKAAAAAASAAACgAAAAEAAAAEZVGDLTC/wv/FvBrp/H2+4gAAAAbFh2AlVqlSdoYlI5DeZqH65F/myB7ZTezd64Ezj2C2wUAAAAWD1RYBAUQ3mwj+sadnkpuRDNB4c</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -235,6 +235,7 @@
                       errorRowDisposition="FailComponent"
                       lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Ingresos]"
                       name="DC_Ingresos"
+                      scale="2"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -569,6 +570,7 @@
                       refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Ingresos]"
                       cachedDataType="decimal"
                       cachedName="DC_Ingresos"
+                      cachedScale="2"
                       externalMetadataColumnId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Ingresos]"
                       lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Ingresos]" />
                     <inputColumn
@@ -1041,7 +1043,7 @@
         <NodeLayout
           Size="164,41.6"
           Id="Package\Carga de Archivos"
-          TopLeft="253.333319491811,134.333332399196" />
+          TopLeft="471.666640895938,101.399999294877" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1053,29 +1055,29 @@
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Carga de Archivos\Flat File Source"
-          TopLeft="58.9999991208313,74.9999988824129" />
+          TopLeft="39.0000002135831,45.5333324206537" />
         <NodeLayout
           Size="156,41.6"
           Id="Package\Carga de Archivos\Data Conversion"
-          TopLeft="344.833333327538,73.7333322483964" />
+          TopLeft="319.833334693478,39.0666658227974" />
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\Carga de Archivos\Destino de ADO NET"
-          TopLeft="625.833299139309,70.199999511838" />
+          TopLeft="665.833296953806,43.3333330319988" />
         <EdgeLayout
           Id="Package\Carga de Archivos.Paths[Flat File Source Output]"
-          TopLeft="210.199999120831,95.1666655654046">
+          TopLeft="190.200000213583,63.0999991217256">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="134.633334206707,0"
+              EndConnector="129.633334479895,0"
               Start="0,0"
-              End="127.133334206707,0">
+              End="122.133334479895,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="127.133334206707,0" />
+                    End="122.133334479895,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1087,33 +1089,33 @@
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Carga de Archivos\Derived Column"
-          TopLeft="462.499974730115,179.399998752475" />
+          TopLeft="446.666642261877,201.933331929114" />
         <EdgeLayout
           Id="Package\Carga de Archivos.Paths[Data Conversion Output]"
-          TopLeft="422.833333327538,115.333332248396">
+          TopLeft="397.833334693478,80.6666658227974">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="116.066641402577,64.0666665040785"
+              EndConnector="101.099974235066,121.266666106317"
               Start="0,0"
-              End="116.066641402577,56.5666665040785">
+              End="101.099974235066,113.766666106317">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.0333332520392" />
+                    End="0,68.0060100299685" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.0333332520392"
-                    Point2="0,32.0333332520392"
-                    Point3="4,32.0333332520392" />
+                    Point1="0,68.0060100299685"
+                    Point2="0,72.0060100299685"
+                    Point3="4,72.0060100299685" />
                   <mssgle:LineSegment
-                    End="112.066641402577,32.0333332520392" />
+                    End="97.0999742350662,72.0060100299685" />
                   <mssgle:CubicBezierSegment
-                    Point1="112.066641402577,32.0333332520392"
-                    Point2="116.066641402577,32.0333332520392"
-                    Point3="116.066641402577,36.0333332520392" />
+                    Point1="97.0999742350662,72.0060100299685"
+                    Point2="101.099974235066,72.0060100299685"
+                    Point3="101.099974235066,76.0060100299685" />
                   <mssgle:LineSegment
-                    End="116.066641402577,56.5666665040785" />
+                    End="101.099974235066,113.766666106317" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1124,30 +1126,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga de Archivos.Paths[Derived Column Output]"
-          TopLeft="563.033308063449,179.399998752475">
+          TopLeft="547.199975595211,201.933331929114">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="151.19999107586,-67.5999992406369"
+              EndConnector="207.033321358595,-116.999998897115"
               Start="0,0"
-              End="151.19999107586,-60.0999992406369">
+              End="207.033321358595,-109.499998897115">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-23.4603105723623" />
+                    End="0,-43.5274606918853" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-23.4603105723623"
-                    Point2="0,-27.4603105723623"
-                    Point3="4,-27.4603105723623" />
+                    Point1="0,-43.5274606918853"
+                    Point2="0,-47.5274606918853"
+                    Point3="4,-47.5274606918853" />
                   <mssgle:LineSegment
-                    End="147.19999107586,-27.4603105723623" />
+                    End="203.033321358595,-47.5274606918853" />
                   <mssgle:CubicBezierSegment
-                    Point1="147.19999107586,-27.4603105723623"
-                    Point2="151.19999107586,-27.4603105723623"
-                    Point3="151.19999107586,-31.4603105723623" />
+                    Point1="203.033321358595,-47.5274606918853"
+                    Point2="207.033321358595,-47.5274606918853"
+                    Point3="207.033321358595,-51.5274606918853" />
                   <mssgle:LineSegment
-                    End="151.19999107586,-60.0999992406369" />
+                    End="207.033321358595,-109.499998897115" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
