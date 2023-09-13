@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{5C63CFEA-81B4-4948-855F-406AA26D3B62}">
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{0A642D9B-F00C-447F-AEF8-DB4A90105300}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -130,7 +130,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADhDIzzEpGCPaLVcFJxvbcdAAAAAASAAACgAAAAEAAAAP19FFr8Bg4hleKN7YYnL7wgAAAA6SGUIxWTgVUUkakzSHd6+scYcQmloT8tE+zDxNiuHJUUAAAAA8zFx/ZaTY5dlUxqwY/hVlcf4sY</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACb3VoKfoy1ruxMIheH2/zuAAAAAASAAACgAAAAEAAAACnS3xL+DRUzydd2zhyutMcgAAAAK3MPCX0ISaHHC7cFW9k0tedcdDZJQovU6xIp/pPRmccUAAAAvRJ7qj8gxxClIr7vcOfjtoQsuRg</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -524,6 +524,31 @@
                       exclusionGroup="1"
                       name="Derived Column Output"
                       synchronousInputId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Output].Columns[DCT_SUCURSAL]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Output].Columns[DCT_SUCURSAL]"
+                          name="DCT_SUCURSAL"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,255)[TOKEN]([TOKEN](@[User::PATH_ARCHIVO],"\\",9),"_",1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,255)TOKEN(TOKEN(@[User::PATH_ARCHIVO],"\\",9),"_",1)</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
                       <externalMetadataColumns />
                     </output>
                     <output
@@ -659,6 +684,13 @@
                           cachedName="DC_Yoga"
                           externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Yoga]"
                           lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Yoga]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DCT_SUCURSAL]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="DCT_SUCURSAL"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sucursal]"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Output].Columns[DCT_SUCURSAL]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">

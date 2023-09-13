@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{5C63CFEA-81B4-4948-855F-406AA26D3B62}">
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{324E8246-25F8-4492-ADD1-5F6A4AB36091}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -130,7 +130,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADf6DPGSwDllv0yliVRLQoLAAAAAASAAACgAAAAEAAAABImLDCHmGVgLAd+mg1FLaYgAAAAe1H1L+FBhnOpCE4SkJrMTxAb0u7ffh99s3LRDB155K0UAAAAa3bVAOlKv99hDs1lPuLwWS7KOhI</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABG1yQFLgSo79AVgKsnvHIZAAAAAASAAACgAAAAEAAAAHT+26v9A3FSfOINGVkuT1kgAAAA7iPzNU3ZTyhwRd/yIY7M84j7sS9E/mU1jx0ZQZO53JkUAAAAGtI+SZoaS/NWF0g8eqeRfxh+Bgk</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -524,6 +524,31 @@
                       exclusionGroup="1"
                       name="Derived Column Output"
                       synchronousInputId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Output].Columns[DCT_SUCURSAL]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Output].Columns[DCT_SUCURSAL]"
+                          name="DCT_SUCURSAL"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,255)[TOKEN]([TOKEN](@[User::PATH_ARCHIVO],"\\",9),"_",1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,255)TOKEN(TOKEN(@[User::PATH_ARCHIVO],"\\",9),"_",1)</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
                       <externalMetadataColumns />
                     </output>
                     <output
@@ -659,6 +684,13 @@
                           cachedName="DC_Yoga"
                           externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Yoga]"
                           lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Yoga]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DCT_SUCURSAL]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="DCT_SUCURSAL"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sucursal]"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Output].Columns[DCT_SUCURSAL]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1118,7 +1150,7 @@
     design-time-name="Package\Multiples Archivos\Carga de Archivos">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Multiples Archivos\Carga de Archivos\Derived Column"
@@ -1188,7 +1220,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="95.5166606792975,-42.5274606918853,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

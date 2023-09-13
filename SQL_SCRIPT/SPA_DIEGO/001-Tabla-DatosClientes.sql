@@ -32,3 +32,6 @@ where PromedioVisitas <= 4;
 
 select min(Ingresos), max(Ingresos) from dbo.DatosClientes
 where PromedioVisitas > 4;
+
+
+TRUNCATE TABLE dbo.DatosClientes;
