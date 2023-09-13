@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{2EF6D068-70B6-4775-82FB-F713E493C17E}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{5C63CFEA-81B4-4948-855F-406AA26D3B62}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -21,6 +21,8 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{FBD65DF8-7067-4F1D-967B-B0E507FB93AA}"
       DTS:ObjectName="Administrador de conexiones de archivos planos">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::PATH_ARCHIVO]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -128,904 +130,962 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADHkmcQtyB51E+fG+Ec9nNKAAAAAASAAACgAAAAEAAAAEZVGDLTC/wv/FvBrp/H2+4gAAAAbFh2AlVqlSdoYlI5DeZqH65F/myB7ZTezd64Ezj2C2wUAAAAWD1RYBAUQ3mwj+sadnkpuRDNB4c</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADhDIzzEpGCPaLVcFJxvbcdAAAAAASAAACgAAAAEAAAAP19FFr8Bg4hleKN7YYnL7wgAAAA6SGUIxWTgVUUkakzSHd6+scYcQmloT8tE+zDxNiuHJUUAAAAA8zFx/ZaTY5dlUxqwY/hVlcf4sY</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8EBB1627-9D7B-4E86-ACC1-DE841D9422A8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PATH">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\victor.cornejo\UDB\Dataware House\Desafio01\Recursos_Archivos_CSV\Diego</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DBD56BFD-0FDA-477E-944D-6304359BF4C6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PATH_ARCHIVO">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\victor.cornejo\UDB\Dataware House\Desafio01\Recursos_Archivos_CSV\Diego\SpaCentro_m20191007.csv</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Carga de Archivos"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{D965DB34-77A7-4DB4-946A-B7E9E791F8B7}"
-      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:refId="Package\Multiples Archivos"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Contenedor de bucles Foreach"
+      DTS:DTSID="{9AA0D326-6C56-4AE1-9D32-C13C172DEE26}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Carga de Archivos"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      DTS:ObjectName="Multiples Archivos">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{42C3D3B6-DE4B-445F-A08A-93929189DEA2}"
+        DTS:ObjectName="{42C3D3B6-DE4B-445F-A08A-93929189DEA2}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::PATH]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\victor.cornejo\UDB\Dataware House\Desafio01\Recursos_Archivos_CSV\Diego" />
+            <FEFEProperty
+              FileSpec="*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
       <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Carga de Archivos\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Ingresos]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Ingresos"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Ingresos]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[PromedioVisitas]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="PromedioVisitas"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[PromedioVisitas]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Edad]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Edad"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Edad]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Sauna]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Sauna"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sauna]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Masaje]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Masaje"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Masaje]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Hidro]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Hidro"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Hidro]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Yoga]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Yoga"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Yoga]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Sexo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Sexo"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sexo]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Ingresos]"
-                      dataType="decimal"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Ingresos]"
-                      name="DC_Ingresos"
-                      scale="2"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Ingresos]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_PromedioVisitas]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_PromedioVisitas]"
-                      name="DC_PromedioVisitas"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[PromedioVisitas]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Edad]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Edad]"
-                      name="DC_Edad"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Edad]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sauna]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sauna]"
-                      name="DC_Sauna"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sauna]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Masaje]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Masaje]"
-                      name="DC_Masaje"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Masaje]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Hidro]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Hidro]"
-                      name="DC_Hidro"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Hidro]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Yoga]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Yoga]"
-                      name="DC_Yoga"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Yoga]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sexo]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="1"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sexo]"
-                      name="DC_Sexo"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sexo]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Carga de Archivos\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Carga de Archivos\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Derived Column.Inputs[Derived Column Input].Columns[Sexo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Sexo"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sexo]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Derived Column.Inputs[Derived Column Input].Columns[DC_Sexo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="DC_Sexo"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sexo]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">#{Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sexo]} == "0" ? "F" : "M"</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">Sexo == "0" ? "F" : "M"</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Carga de Archivos\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Carga de Archivos\Derived Column.Inputs[Derived Column Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Carga de Archivos\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Carga de Archivos\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Carga de Archivos\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Carga de Archivos\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Carga de Archivos\Destino de ADO NET"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
-              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
-              name="Destino de ADO NET"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Nombre de la tabla de la base de datos de destino."
-                  expressionType="Notify"
-                  name="TableOrViewName"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DatosClientes"</property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
-                  expressionType="Notify"
-                  name="BatchSize">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
-                  expressionType="Notify"
-                  name="CommandTimeout">30</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
-                  expressionType="Notify"
-                  name="UseBulkInsertWhenPossible">true</property>
-                <property
-                  dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Carga de Archivos\Destino de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MSSQL_DB_SPA_DIEGO]"
-                  connectionManagerRefId="Package.ConnectionManagers[MSSQL_DB_SPA_DIEGO]"
-                  description="Administrador de conexiones administrado"
-                  name="IDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrada de destino de ADO NET">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Nombre]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Nombre"
-                      externalMetadataColumnId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre]"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Nombre]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Sexo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="DC_Sexo"
-                      externalMetadataColumnId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sexo]"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sexo]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Ingresos]"
-                      cachedDataType="decimal"
-                      cachedName="DC_Ingresos"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Ingresos]"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Ingresos]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_PromedioVisitas]"
-                      cachedDataType="i4"
-                      cachedName="DC_PromedioVisitas"
-                      externalMetadataColumnId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PromedioVisitas]"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_PromedioVisitas]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Edad]"
-                      cachedDataType="i4"
-                      cachedName="DC_Edad"
-                      externalMetadataColumnId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Edad]"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Edad]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Sauna]"
-                      cachedDataType="bool"
-                      cachedName="DC_Sauna"
-                      externalMetadataColumnId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sauna]"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sauna]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Masaje]"
-                      cachedDataType="bool"
-                      cachedName="DC_Masaje"
-                      externalMetadataColumnId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Masaje]"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Masaje]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Hidro]"
-                      cachedDataType="bool"
-                      cachedName="DC_Hidro"
-                      externalMetadataColumnId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Hidro]"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Hidro]" />
-                    <inputColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Yoga]"
-                      cachedDataType="bool"
-                      cachedName="DC_Yoga"
-                      externalMetadataColumnId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Yoga]"
-                      lineageId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Yoga]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id]"
-                      dataType="i4"
-                      name="Id" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sucursal]"
-                      dataType="wstr"
-                      length="255"
-                      name="Sucursal" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre]"
-                      dataType="wstr"
-                      length="255"
-                      name="Nombre" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sexo]"
-                      dataType="wstr"
-                      length="1"
-                      name="Sexo" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Ingresos]"
-                      dataType="numeric"
-                      name="Ingresos"
-                      precision="10"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PromedioVisitas]"
-                      dataType="i4"
-                      name="PromedioVisitas" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Edad]"
-                      dataType="i4"
-                      name="Edad" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sauna]"
-                      dataType="bool"
-                      name="Sauna" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Masaje]"
-                      dataType="bool"
-                      name="Masaje" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Hidro]"
-                      dataType="bool"
-                      name="Hidro" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Yoga]"
-                      dataType="bool"
-                      name="Yoga" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Carga de Archivos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Salida de error de destino de ADO NET"
-                  synchronousInputId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Carga de Archivos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Carga de Archivos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Carga de Archivos\Flat File Source"
-              componentClassID="Microsoft.FlatFileSource"
-              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Flat File Source"
-              localeId="17418"
-              name="Flat File Source"
-              usesDispositions="true"
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Multiples Archivos\Carga de Archivos"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D965DB34-77A7-4DB4-946A-B7E9E791F8B7}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Carga de Archivos"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
               version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether zero-length columns are treated as null."
-                  name="RetainNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
-                  name="FileNameColumnName"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Carga de Archivos\Flat File Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones de archivos planos]"
-                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones de archivos planos]"
-                  name="FlatFileConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output]"
-                  name="Flat File Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Nombre]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
+              <components>
+                <component
+                  refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Ingresos]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Ingresos"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Ingresos]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[PromedioVisitas]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="PromedioVisitas"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[PromedioVisitas]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Edad]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Edad"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Edad]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Sauna]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Sauna"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sauna]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Masaje]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Masaje"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Masaje]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Hidro]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Hidro"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Hidro]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Yoga]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Yoga"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Yoga]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input].Columns[Sexo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Sexo"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sexo]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Ingresos]"
+                          dataType="decimal"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Ingresos]"
+                          name="DC_Ingresos"
+                          scale="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Ingresos]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_PromedioVisitas]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_PromedioVisitas]"
+                          name="DC_PromedioVisitas"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[PromedioVisitas]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Edad]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Edad]"
+                          name="DC_Edad"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Edad]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sauna]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sauna]"
+                          name="DC_Sauna"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sauna]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Masaje]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Masaje]"
+                          name="DC_Masaje"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Masaje]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Hidro]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Hidro]"
+                          name="DC_Hidro"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Hidro]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Yoga]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Yoga]"
+                          name="DC_Yoga"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Yoga]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="1"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sexo]"
+                          name="DC_Sexo"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sexo]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Multiples Archivos\Carga de Archivos\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Inputs[Derived Column Input].Columns[Sexo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Sexo"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sexo]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Inputs[Derived Column Input].Columns[DC_Sexo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="DC_Sexo"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sexo]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">#{Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sexo]} == "0" ? "F" : "M"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">Sexo == "0" ? "F" : "M"</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+                  description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+                  name="Destino de ADO NET"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Nombre de la tabla de la base de datos de destino."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DatosClientes"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[MSSQL_DB_SPA_DIEGO]"
+                      connectionManagerRefId="Package.ConnectionManagers[MSSQL_DB_SPA_DIEGO]"
+                      description="Administrador de conexiones administrado"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[id]"
-                      length="50"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Nombre]"
-                      name="Nombre"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sexo]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sexo]"
-                      length="50"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sexo]"
-                      name="Sexo"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Ingresos]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ingresos]"
-                      length="50"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Ingresos]"
-                      name="Ingresos"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[PromedioVisitas]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PromVisit]"
-                      length="50"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[PromedioVisitas]"
-                      name="PromedioVisitas"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Edad]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Edad]"
-                      length="50"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Edad]"
-                      name="Edad"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sauna]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sauna]"
-                      length="50"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sauna]"
-                      name="Sauna"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Masaje]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Masaje]"
-                      length="50"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Masaje]"
-                      name="Masaje"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Hidro]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Hidro]"
-                      length="50"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Hidro]"
-                      name="Hidro"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Yoga]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Yoga]"
-                      length="50"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Yoga]"
-                      name="Yoga"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="id" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sexo]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Sexo" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ingresos]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="ingresos" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PromVisit]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="PromVisit" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Edad]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Edad" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sauna]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Sauna" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Masaje]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Masaje" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Hidro]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Hidro" />
-                    <externalMetadataColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Yoga]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Yoga" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output]"
-                  isErrorOut="true"
-                  name="Flat File Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      codePage="1252"
-                      dataType="text"
-                      description="Flat File Source Error Output Column"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      name="Flat File Source Error Output Column" />
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Carga de Archivos.Paths[Data Conversion Output]"
-              endId="Package\Carga de Archivos\Derived Column.Inputs[Derived Column Input]"
-              name="Data Conversion Output"
-              startId="Package\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Carga de Archivos.Paths[Derived Column Output]"
-              endId="Package\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
-              name="Derived Column Output"
-              startId="Package\Carga de Archivos\Derived Column.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Carga de Archivos.Paths[Flat File Source Output]"
-              endId="Package\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input]"
-              name="Flat File Source Output"
-              startId="Package\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
+                      hasSideEffects="true"
+                      name="Entrada de destino de ADO NET">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Nombre]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Nombre"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre]"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Nombre]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Sexo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="DC_Sexo"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sexo]"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sexo]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Ingresos]"
+                          cachedDataType="decimal"
+                          cachedName="DC_Ingresos"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Ingresos]"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Ingresos]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_PromedioVisitas]"
+                          cachedDataType="i4"
+                          cachedName="DC_PromedioVisitas"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PromedioVisitas]"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_PromedioVisitas]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Edad]"
+                          cachedDataType="i4"
+                          cachedName="DC_Edad"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Edad]"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Edad]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Sauna]"
+                          cachedDataType="bool"
+                          cachedName="DC_Sauna"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sauna]"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sauna]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Masaje]"
+                          cachedDataType="bool"
+                          cachedName="DC_Masaje"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Masaje]"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Masaje]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Hidro]"
+                          cachedDataType="bool"
+                          cachedName="DC_Hidro"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Hidro]"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Hidro]" />
+                        <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Yoga]"
+                          cachedDataType="bool"
+                          cachedName="DC_Yoga"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Yoga]"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Yoga]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id]"
+                          dataType="i4"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sucursal]"
+                          dataType="wstr"
+                          length="255"
+                          name="Sucursal" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre]"
+                          dataType="wstr"
+                          length="255"
+                          name="Nombre" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sexo]"
+                          dataType="wstr"
+                          length="1"
+                          name="Sexo" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Ingresos]"
+                          dataType="numeric"
+                          name="Ingresos"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PromedioVisitas]"
+                          dataType="i4"
+                          name="PromedioVisitas" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Edad]"
+                          dataType="i4"
+                          name="Edad" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sauna]"
+                          dataType="bool"
+                          name="Sauna" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Masaje]"
+                          dataType="bool"
+                          name="Masaje" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Hidro]"
+                          dataType="bool"
+                          name="Hidro" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Yoga]"
+                          dataType="bool"
+                          name="Yoga" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de destino de ADO NET"
+                      synchronousInputId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="17418"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Administrador de conexiones de archivos planos]"
+                      connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones de archivos planos]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Nombre]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[id]"
+                          length="50"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Nombre]"
+                          name="Nombre"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sexo]"
+                          length="50"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sexo]"
+                          name="Sexo"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Ingresos]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ingresos]"
+                          length="50"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Ingresos]"
+                          name="Ingresos"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[PromedioVisitas]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PromVisit]"
+                          length="50"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[PromedioVisitas]"
+                          name="PromedioVisitas"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Edad]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Edad]"
+                          length="50"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Edad]"
+                          name="Edad"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sauna]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sauna]"
+                          length="50"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Sauna]"
+                          name="Sauna"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Masaje]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Masaje]"
+                          length="50"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Masaje]"
+                          name="Masaje"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Hidro]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Hidro]"
+                          length="50"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Hidro]"
+                          name="Hidro"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Yoga]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Yoga]"
+                          length="50"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Yoga]"
+                          name="Yoga"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sexo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Sexo" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ingresos]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ingresos" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PromVisit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="PromVisit" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Edad]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Edad" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sauna]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Sauna" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Masaje]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Masaje" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Hidro]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Hidro" />
+                        <externalMetadataColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Yoga]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Yoga" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Multiples Archivos\Carga de Archivos.Paths[Data Conversion Output]"
+                  endId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Inputs[Derived Column Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Multiples Archivos\Carga de Archivos.Paths[Derived Column Output]"
+                  endId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                  name="Derived Column Output"
+                  startId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Multiples Archivos\Carga de Archivos.Paths[Flat File Source Output]"
+                  endId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{01990B03-FF4B-41E5-820C-4DD0BF39E119}"
+          DTS:ObjectName="{01990B03-FF4B-41E5-820C-4DD0BF39E119}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::PATH_ARCHIVO" />
+      </DTS:ForEachVariableMappings>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -1042,30 +1102,41 @@
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="164,41.6"
-          Id="Package\Carga de Archivos"
-          TopLeft="471.666640895938,101.399999294877" />
+          Id="Package\Multiples Archivos\Carga de Archivos"
+          TopLeft="19.8999870235732,9.66666579279629" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="204.8,106.4"
+          Size="204.8,149.6"
+          Id="Package\Multiples Archivos"
+          TopLeft="527.499971178672,57.1999996022383" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Carga de Archivos">
+    design-time-name="Package\Multiples Archivos\Carga de Archivos">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Multiples Archivos\Carga de Archivos\Derived Column"
+          TopLeft="446.666642261877,201.933331929114" />
+        <NodeLayout
           Size="151.2,41.6"
-          Id="Package\Carga de Archivos\Flat File Source"
+          Id="Package\Multiples Archivos\Carga de Archivos\Flat File Source"
           TopLeft="39.0000002135831,45.5333324206537" />
         <NodeLayout
           Size="156,41.6"
-          Id="Package\Carga de Archivos\Data Conversion"
+          Id="Package\Multiples Archivos\Carga de Archivos\Data Conversion"
           TopLeft="319.833334693478,39.0666658227974" />
         <NodeLayout
           Size="176.8,41.6"
-          Id="Package\Carga de Archivos\Destino de ADO NET"
+          Id="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET"
           TopLeft="665.833296953806,43.3333330319988" />
         <EdgeLayout
-          Id="Package\Carga de Archivos.Paths[Flat File Source Output]"
+          Id="Package\Multiples Archivos\Carga de Archivos.Paths[Flat File Source Output]"
           TopLeft="190.200000213583,63.0999991217256">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1086,46 +1157,8 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Carga de Archivos\Derived Column"
-          TopLeft="446.666642261877,201.933331929114" />
         <EdgeLayout
-          Id="Package\Carga de Archivos.Paths[Data Conversion Output]"
-          TopLeft="397.833334693478,80.6666658227974">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="101.099974235066,121.266666106317"
-              Start="0,0"
-              End="101.099974235066,113.766666106317">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,68.0060100299685" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,68.0060100299685"
-                    Point2="0,72.0060100299685"
-                    Point3="4,72.0060100299685" />
-                  <mssgle:LineSegment
-                    End="97.0999742350662,72.0060100299685" />
-                  <mssgle:CubicBezierSegment
-                    Point1="97.0999742350662,72.0060100299685"
-                    Point2="101.099974235066,72.0060100299685"
-                    Point3="101.099974235066,76.0060100299685" />
-                  <mssgle:LineSegment
-                    End="101.099974235066,113.766666106317" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Carga de Archivos.Paths[Derived Column Output]"
+          Id="Package\Multiples Archivos\Carga de Archivos.Paths[Derived Column Output]"
           TopLeft="547.199975595211,201.933331929114">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1158,11 +1191,45 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Multiples Archivos\Carga de Archivos.Paths[Data Conversion Output]"
+          TopLeft="397.833334693478,80.6666658227974">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101.099974235066,121.266666106317"
+              Start="0,0"
+              End="101.099974235066,113.766666106317">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.0060100299685" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,68.0060100299685"
+                    Point2="0,72.0060100299685"
+                    Point3="4,72.0060100299685" />
+                  <mssgle:LineSegment
+                    End="97.0999742350662,72.0060100299685" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97.0999742350662,72.0060100299685"
+                    Point2="101.099974235066,72.0060100299685"
+                    Point3="101.099974235066,76.0060100299685" />
+                  <mssgle:LineSegment
+                    End="101.099974235066,113.766666106317" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga de Archivos\Destino de ADO NET">
+    design-time-name="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
