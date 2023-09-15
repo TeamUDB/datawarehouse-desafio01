@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MSMSQL"
+  DTS:DTSID="{8E6F6751-5B15-4D9A-BBB0-55A8377F2120}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=udb-mineria.victorcornejo.com\mineria,5033;User ID=victorcornejo;Initial Catalog=db_roaming_honduras;Persist Security Info=True;Application Name=SSIS-Package-{8E6F6751-5B15-4D9A-BBB0-55A8377F2120}udb-mineria.victorcornejo.com\mineria,5033.SPA_DIEGO.victorcornejo;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAACAAAAAAADZgAAwAAAABAAAACBhZImxImJLzhONLbHgiOXAAAAAASAAACgAAAAEAAAACYa6MVvOho/GqKKBiFGHs54AAAAa4x68oiUYaHVfk/fFZIAcxQQT7S+kj6OU0PLPTrj2xNpJ/CINiQiTGBSCzh6g6dQeQ/gwilT2VtSn3Jkwo7AfLM4jPGmnxuOZv9vwqrIABfGAdLvsuODRjVKkxH/xSSJNGOJLR5gynms2nsK3uw+SgSlQUH2bUZaFAAAABPLSZqxsTKYC1ykMhTqIfHIbJ8d</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

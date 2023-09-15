@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MySQL"
+  DTS:DTSID="{43497A73-9971-47F4-AD0C-8F7C792A078D}"
+  DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="uid=victorcornejo;Dsn=MINERIA;">
+      <DTS:Password
+        DTS:Name="pwd"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAACAAAAAAADZgAAwAAAABAAAAC23jgtPwlexmz1+p4DiJ41AAAAAASAAACgAAAAEAAAAFwdB9lg6podz55TUjsJsVV4AAAAt6X42KebD3RivBVYJLfkfto6SW4plPogCv5SMgLYmlX9wBfpQ6LZmq15HvLqbZuzEvvO+mCL6g3IJeniSwccoIkCXfAbxNIVO/cNLDR5m5QKsMibMqRCvPOu6APLDBAZvkmvagea7fU4X5omFC/RA8pT/PCPnGzlFAAAALTVR09LvMIej5q5dCqS8LLO7DUh</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
