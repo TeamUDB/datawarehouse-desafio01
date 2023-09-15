@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "SpaDiego", "Desafio01\SpaDiego.dtproj", "{179A2199-9E16-479A-86CE-6D5F56170325}"
 EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "FloristeriaFiorella", "FloristeriaFiorella\FloristeriaFiorella.dtproj", "{FE7EDBD4-D89B-4187-96CA-25FAC6DBE043}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
@@ -12,6 +14,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{179A2199-9E16-479A-86CE-6D5F56170325}.Development|Default.ActiveCfg = Development
 		{179A2199-9E16-479A-86CE-6D5F56170325}.Development|Default.Build.0 = Development
+		{FE7EDBD4-D89B-4187-96CA-25FAC6DBE043}.Development|Default.ActiveCfg = Development
+		{FE7EDBD4-D89B-4187-96CA-25FAC6DBE043}.Development|Default.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
-    <Name>SpaDiego</Name>
-    <LastWriteTime>2023-09-13T04:05:06.3360487Z</LastWriteTime>
+    <Name>FloristeriaFiorella</Name>
+    <LastWriteTime>2023-09-15T03:42:51.6194244Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
-      <LastWriteTime>2023-09-15T03:42:46.6576313Z</LastWriteTime>
+      <LastWriteTime>2023-09-15T03:42:42.2384618Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
