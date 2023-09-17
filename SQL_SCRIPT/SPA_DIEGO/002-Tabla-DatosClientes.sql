@@ -19,10 +19,10 @@ CREATE TABLE [dbo].[DatosClientes]
     [Ingresos]        DECIMAL(10, 2),
     [PromedioVisitas] INT,
     [Edad]            INT,
-    [Sauna]           BIT,
-    [Masaje]          BIT,
-    [Hidro]           BIT,
-    [Yoga]            BIT
+    [Sauna]           INT,
+    [Masaje]          INT,
+    [Hidro]           INT,
+    [Yoga]            INT
 );
 Go
 

@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{980981F3-6A96-4D80-BD74-5407B6EEF229}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{66608A7F-A865-42AB-8013-6E84F3415438}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -130,7 +130,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADbsCAW+B+Ra98WxTm2GpP8AAAAAASAAACgAAAAEAAAALFu4PNChTlP3+9SZ8lqfHwgAAAAx/QJmZvYzh4z9ucbKvErAc05tx9W5GSiWUlbjyNxa5IUAAAA3uByRVNIjTDhElWIzevpziOHENo</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC/y2nfw1XG+v4oL9zpio7iAAAAAASAAACgAAAAEAAAAEgfXYIBxlXI1Uln7Hy44yYgAAAASgMpNWOd4asT4lRv7Zy+Yf/nvahNIpRjTt3wNOuVtbsUAAAA3oI2DKMgYqznloYhG5xOXOO8Cg8</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -358,7 +358,7 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sauna]"
-                          dataType="bool"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sauna]"
@@ -378,7 +378,7 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Masaje]"
-                          dataType="bool"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Masaje]"
@@ -398,7 +398,7 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Hidro]"
-                          dataType="bool"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Hidro]"
@@ -418,7 +418,7 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Yoga]"
-                          dataType="bool"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Yoga]"
@@ -651,14 +651,6 @@
                           externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre]"
                           lineageId="Package\Multiples Archivos\Carga de Archivos\Flat File Source.Outputs[Flat File Source Output].Columns[Nombre]" />
                         <inputColumn
-                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Sexo]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="1"
-                          cachedName="DC_Sexo"
-                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sexo]"
-                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sexo]" />
-                        <inputColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Ingresos]"
                           cachedDataType="decimal"
                           cachedName="DC_Ingresos"
@@ -679,35 +671,36 @@
                           lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Edad]" />
                         <inputColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Sauna]"
-                          cachedDataType="bool"
+                          cachedDataType="i4"
                           cachedName="DC_Sauna"
                           externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sauna]"
                           lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sauna]" />
                         <inputColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Masaje]"
-                          cachedDataType="bool"
+                          cachedDataType="i4"
                           cachedName="DC_Masaje"
                           externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Masaje]"
                           lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Masaje]" />
                         <inputColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Hidro]"
-                          cachedDataType="bool"
+                          cachedDataType="i4"
                           cachedName="DC_Hidro"
                           externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Hidro]"
                           lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Hidro]" />
                         <inputColumn
+                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Sexo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="DC_Sexo"
+                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sexo]"
+                          lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Sexo]" />
+                        <inputColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DC_Yoga]"
-                          cachedDataType="bool"
+                          cachedDataType="i4"
                           cachedName="DC_Yoga"
                           externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Yoga]"
                           lineageId="Package\Multiples Archivos\Carga de Archivos\Data Conversion.Outputs[Data Conversion Output].Columns[DC_Yoga]" />
-                        <inputColumn
-                          refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[DCT_SUCURSAL]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="DCT_SUCURSAL"
-                          externalMetadataColumnId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sucursal]"
-                          lineageId="Package\Multiples Archivos\Carga de Archivos\Derived Column.Outputs[Derived Column Output].Columns[DCT_SUCURSAL]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -746,19 +739,19 @@
                           name="Edad" />
                         <externalMetadataColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Sauna]"
-                          dataType="bool"
+                          dataType="i4"
                           name="Sauna" />
                         <externalMetadataColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Masaje]"
-                          dataType="bool"
+                          dataType="i4"
                           name="Masaje" />
                         <externalMetadataColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Hidro]"
-                          dataType="bool"
+                          dataType="i4"
                           name="Hidro" />
                         <externalMetadataColumn
                           refId="Package\Multiples Archivos\Carga de Archivos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Yoga]"
-                          dataType="bool"
+                          dataType="i4"
                           name="Yoga" />
                       </externalMetadataColumns>
                     </input>
@@ -1130,8 +1123,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{01990B03-FF4B-41E5-820C-4DD0BF39E119}"
-          DTS:ObjectName="{01990B03-FF4B-41E5-820C-4DD0BF39E119}"
+          DTS:DTSID="{8230F8A8-5016-4877-AFA5-BC7E2B612822}"
+          DTS:ObjectName="{8230F8A8-5016-4877-AFA5-BC7E2B612822}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::PATH_ARCHIVO" />
       </DTS:ForEachVariableMappings>
