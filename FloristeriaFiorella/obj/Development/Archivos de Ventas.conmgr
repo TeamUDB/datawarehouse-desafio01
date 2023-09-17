@@ -12,7 +12,7 @@
       DTS:RowDelimiter=""
       DTS:TextQualifier="_x003C_none_x003E_"
       DTS:CodePage="1252"
-      DTS:ConnectionString="C:\Users\victor.cornejo\UDB\Dataware House\Desafio01\Recursos_Archivos_CSV\Fiorella\SanMiguel_j20191007.csv">
+      DTS:ConnectionString="C:\Users\victor.cornejo\UDB\Dataware House\Desafio01\Recursos_Archivos_CSV\Fiorella\SanSalvador_i20191007.csv">
       <DTS:FlatFileColumns>
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -21,7 +21,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="id"
-          DTS:DTSID="{2DACC657-E47E-4D46-9C47-96188C32B7E2}"
+          DTS:DTSID="{4053C7E8-B76A-4836-8D44-4E91D03BF733}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -30,7 +30,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="Rosas"
-          DTS:DTSID="{E69A03B8-8E1E-44E9-AF0B-45A0BB4A09B2}"
+          DTS:DTSID="{15C05EB8-EF88-4A7A-8A12-27FF9077D2F1}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -39,7 +39,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="Claveles"
-          DTS:DTSID="{A7BAEB78-CB79-4329-9219-87176F22DD08}"
+          DTS:DTSID="{B220616F-2BFB-40C1-B1DE-11F3809E2317}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -48,7 +48,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="Macetas"
-          DTS:DTSID="{FADCB0F0-2E2C-44BD-ACF1-091F33D54E6F}"
+          DTS:DTSID="{9D0178F5-5982-4CB6-9D5E-591EA8F7A32E}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -57,7 +57,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="Tierra"
-          DTS:DTSID="{DC7526E2-C7BF-4E24-B9C9-39317425DEBA}"
+          DTS:DTSID="{BA0BA33D-72FA-4FA5-89CE-20A5A6B0C635}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -66,7 +66,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="Girasoles"
-          DTS:DTSID="{88277F6B-63B0-4896-89A5-94CE0D6B609C}"
+          DTS:DTSID="{27FEBB32-240A-4470-AB59-63D13B34CDA1}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -75,7 +75,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="Hortensia"
-          DTS:DTSID="{B9AC8DBE-FB5C-4C0B-8C8B-0F63D0EC7D9B}"
+          DTS:DTSID="{31443731-7E1A-4E06-99A1-B7D2DD48F7D1}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -84,7 +84,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="Globos"
-          DTS:DTSID="{3E989E8E-33AF-4B62-862F-203BD32B6456}"
+          DTS:DTSID="{9B23FBA3-F5FF-4066-A278-8C4E62A85D79}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -93,7 +93,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="Tarjetas"
-          DTS:DTSID="{057951A7-0311-4665-9C33-4B98D257B657}"
+          DTS:DTSID="{32658D74-26A4-44E8-8C4B-EFF48827BFD1}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -102,7 +102,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="fOrquÃ­dias"
-          DTS:DTSID="{207297E0-0210-415E-9F90-6A801EBB32B9}"
+          DTS:DTSID="{AAD14301-7D2F-4275-9D76-D35CCCB2B007}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -111,7 +111,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="CarmesÃ­"
-          DTS:DTSID="{F0C190BC-84E9-40D1-90D0-3BDBCA483575}"
+          DTS:DTSID="{5294D725-EB16-40BF-9159-2304F160DD86}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -120,7 +120,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="Lirios"
-          DTS:DTSID="{759DCFCC-C940-4A13-9FB8-6BCA82882A3F}"
+          DTS:DTSID="{160CA6A7-060C-4695-8428-C3A8344E3748}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -129,7 +129,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="Aurora"
-          DTS:DTSID="{11F073AA-6ABF-4CB1-B512-3837AEC4A2D4}"
+          DTS:DTSID="{6C7A2368-181F-46BA-9FFF-94B4AAD13934}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -138,7 +138,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="Tulipanes"
-          DTS:DTSID="{748CA772-049C-4D87-983C-B568836260E9}"
+          DTS:DTSID="{90940B47-099B-4962-8F15-C3B5A3172E0A}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -147,7 +147,7 @@
           DTS:DataType="129"
           DTS:TextQualified="True"
           DTS:ObjectName="ListÃ³n"
-          DTS:DTSID="{7B569FC3-9D76-4ABE-8328-311BB968C36C}"
+          DTS:DTSID="{CCDC8047-A459-41AA-B4B4-C143F91CA67B}"
           DTS:CreationName="" />
       </DTS:FlatFileColumns>
     </DTS:ConnectionManager>

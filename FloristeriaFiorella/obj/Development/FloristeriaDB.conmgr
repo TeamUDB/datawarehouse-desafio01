@@ -8,7 +8,7 @@
       DTS:ConnectionString="Data Source=udb-mineria.victorcornejo.com\mineria,5033;User ID=victorcornejo;Initial Catalog=FIRIOLLA;Persist Security Info=True;Application Name=SSIS-Package-{646B2010-6FF3-472A-A854-F4CDA36C4BA8}udb-mineria.victorcornejo.com\mineria,5033.SPA_DIEGO.victorcornejo;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAACAAAAAAADZgAAwAAAABAAAACFFLwu4eAema25YnMnd573AAAAAASAAACgAAAAEAAAADgBT0rsQkmZ2XYX0gSASUp4AAAAr9VuLKrXCLsq3gYs1kx/yUSPoFnGIZUv5wX+EiacvrrGU+LUKg6JEmeQ5tTJFfXboK9F5NYjwGcHNEQ2Vy1z41I3OwwQLDTT3LZIaKFydWovqWsX7yQfdA0QAQLOR/RcWcXyjO0UF5JvSLb7xR658TGDA01sKuj6FAAAAA0sMoMUl1i+l8aQCWTve65dJDGu</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQ1b3ry/Lj0ew09g8d0RgtQAAAAACAAAAAAADZgAAwAAAABAAAACWE5DkTP51iQuUUQLsOxVoAAAAAASAAACgAAAAEAAAAIt4wLDHD5+AKebtFvO6lS54AAAAljAtHA3QTIj8wfipWMM2PmAKDMY8aILI5X+KZWZFQgmaV6ZeaRq5zF1Lh+pJ3F3sIXT8Y2KZcGuT2juT2b9Sis1yms4sLXVdHpVsmYsO93rs4skH6kogS4VQjfxWOGPXwYpn9zJK4YHveBJmtdgDlE2aSdKmUtoDFAAAAK5nnRsy94ER9MKwCemCAabISMfu</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
